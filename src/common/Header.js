@@ -3,14 +3,20 @@ import { Link, IndexLink } from 'react-router';
 import LoadingDots from './LoadingDots';
 
 const Header = ({loading}) => {
+
   return (
     <nav>
-      <IndexLink to="/" activeClassName="active">Home</IndexLink>
+
+      <IndexLink to="/" activeClassName="active"> Home</IndexLink>
       {" | "}
       <Link to="/painrecords" activeClassName="active">Pain Records</Link>
+      {loading && <LoadingDots interval={100} dots={20}/>}
       {" | "}
       <Link to="/about" activeClassName="active">About</Link>
-      {loading && <LoadingDots interval={100} dots={20}/>} 
+
+      {" | "}
+      <Link to="/signin" activeClassName="active">Sign in</Link>
+
     </nav>
   );
 };
