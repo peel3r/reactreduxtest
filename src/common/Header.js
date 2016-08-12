@@ -1,28 +1,46 @@
-import React, {PropTypes} from 'react';
+import React, {PropTypes, Component } from 'react';
 import { Link, IndexLink} from 'react-router';
-import LoadingDots from './LoadingDots';
+// import LoadingDots from './LoadingDots';
+import { connect } from 'react-redux';
+class Header extends Component {
+  renderLinks() {
+    if (this.props.authenticated) {
+      // show a link to sign out
+      return [
+      <Link to="/painrecords" activeClassName="active">Pain Records |</Link>
+,
+        <Link className="nav-link" to="/signout"> Sign Out</Link>
+      ]
+    } else {
+      // show a link to sign in or sign up
+      return [
 
-const Header = ({loading}) => {
-  return (
-    <nav>
+          <Link className="nav-link" to="/signin" key={1}>Sign In |</Link>
+,
 
-      <IndexLink to="/" activeClassName="active"> Home</IndexLink>
-      {" | "}
-      <Link to="/painrecords" activeClassName="active">Pain Records</Link>
-      {loading && <LoadingDots interval={100} dots={20}/>}
-      {" | "}
-      <Link to="/about" activeClassName="active">About</Link>
+          <Link className="nav-link" to="/signup" key={2}> Sign Up</Link>
 
-      {" | "}
-      <Link to="/signin" activeClassName="active">Sign in</Link>
-      {" | "}
-      <Link to="/signup" activeClassName="active">Sign up</Link>
-      {" | "}
-      <Link to="/signout" activeClassName="active">Sign out</Link>
+      ];
+    }
+  }
 
-    </nav>
-  );
-};
+
+  render() {
+    return (
+
+      <nav>
+
+        <IndexLink to="/" activeClassName="active"> Home</IndexLink>
+        {" | "}
+
+        <Link to="/about" activeClassName="active">About</Link>
+        {" | "}
+        {this.renderLinks()}
+
+      </nav>
+    );
+  }
+}
 
 
 
@@ -32,4 +50,10 @@ Header.propTypes = {
 
 
 
-export default (Header);
+function mapStateToProps(state) {
+  return {
+    authenticated: state.auth.authenticated
+  };
+}
+
+export default connect(mapStateToProps)(Header);

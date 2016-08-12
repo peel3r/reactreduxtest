@@ -8,12 +8,13 @@ import ManagePainRecordPage from './components/painrecords/ManagePainRecordPage'
 import Signin from './auth/signin';
 import Signup from './auth/signup';
 import Signout from './auth/signout';
+import requireAuth from './auth/require_auth';
 
 export default (
   <Route path="/" component={App}>
     <IndexRoute component={HomePage} />
     <Route path="about" component={AboutPage} />
-    <Route path="painrecords" component={PainRecordsPage} />
+    <Route path="painrecords" component={requireAuth(PainRecordsPage)} />
     <Route path="painrecord" component={ManagePainRecordPage} />
     <Route path="painrecord/:id" component={ManagePainRecordPage} />
     <Route path="signin" component={Signin} />
