@@ -29,6 +29,7 @@
   "author": "peeler",
   "license": "MIT",
   "dependencies": {
+    "axios": "0.13.1",
     "bootstrap": "3.3.6",
     "jquery": "3.1.0",
     "object-assign": "4.1.0",

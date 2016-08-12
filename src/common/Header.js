@@ -16,6 +16,8 @@ const Header = ({loading}) => {
 
       {" | "}
       <Link to="/signin" activeClassName="active">Sign in</Link>
+      {" | "}
+      <Link to="/signup" activeClassName="active">Sign up</Link>
 
     </nav>
   );

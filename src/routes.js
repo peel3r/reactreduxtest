@@ -6,6 +6,7 @@ import AboutPage from './components/about/aboutPage';
 import PainRecordsPage from './components/painrecords/PainRecordsPage';
 import ManagePainRecordPage from './components/painrecords/ManagePainRecordPage'; //eslint-disable-line import/no-named-as-default
 import Signin from './auth/signin';
+import Signup from './auth/signup';
 
 export default (
   <Route path="/" component={App}>
@@ -15,6 +16,7 @@ export default (
     <Route path="painrecord" component={ManagePainRecordPage} />
     <Route path="painrecord/:id" component={ManagePainRecordPage} />
     <Route path="signin" component={Signin} />
+    <Route path="signup" component={Signup} />
 
 
   </Route>
