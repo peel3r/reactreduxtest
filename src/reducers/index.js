@@ -4,13 +4,15 @@
  import authors from './authorReducer';
  import ajaxCallsInProgress from './ajaxStatusReducer';
  import {reducer as form} from 'redux-form';
+ import authReducer from './authReducer';
 
 
  const rootReducer = combineReducers({
    painRecords,
    authors,
    ajaxCallsInProgress,
-   form
+   form,
+   auth: authReducer
  });
 
  export default rootReducer  ;
