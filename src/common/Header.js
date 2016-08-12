@@ -1,9 +1,8 @@
 import React, {PropTypes} from 'react';
-import { Link, IndexLink } from 'react-router';
+import { Link, IndexLink} from 'react-router';
 import LoadingDots from './LoadingDots';
 
 const Header = ({loading}) => {
-
   return (
     <nav>
 
@@ -18,13 +17,19 @@ const Header = ({loading}) => {
       <Link to="/signin" activeClassName="active">Sign in</Link>
       {" | "}
       <Link to="/signup" activeClassName="active">Sign up</Link>
+      {" | "}
+      <Link to="/signout" activeClassName="active">Sign out</Link>
 
     </nav>
   );
 };
 
+
+
 Header.propTypes = {
   loading: PropTypes.bool.isRequired
 };
 
-export default Header;
+
+
+export default (Header);
